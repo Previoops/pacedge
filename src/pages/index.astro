@@ -1,17 +1,239 @@
 ---
+const services = [
+  {
+    title: "AWS Infrastructure Fixes",
+    text: "Stabilize broken environments and resolve cloud issues.",
+  },
+  {
+    title: "Terraform Automation",
+    text: "Build repeatable infrastructure with Terraform and Terragrunt.",
+  },
+  {
+    title: "CI/CD Pipeline Support",
+    text: "Fix and optimize deployment workflows.",
+  },
+  {
+    title: "AWS Cost Optimization",
+    text: "Reduce cloud spend and eliminate waste.",
+  },
+];
 
+const security = [
+  "IAM and least-privilege review",
+  "S3, VPC, Security Group, and WAF checks",
+  "GuardDuty, Config, CloudTrail setup",
+  "Cloud misconfiguration testing",
+  "Logging & SIEM support",
+  "Actionable risk report",
+];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Pacedge Consulting</title>
+  </head>
+
+  <body>
+
+    <!-- NAV -->
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="logo">Pacedge</div>
+
+        <div class="nav-actions">
+          <a href="#audit" class="nav-link">Security Audit</a>
+          <a href="mailto:philip@pacedge.dev" class="nav-cta">Book</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="badge">AWS • DevOps • Security</div>
+
+        <h1>Fix your AWS. Reduce your costs. Secure your infrastructure.</h1>
+
+        <p class="hero-text">
+          Pacedge helps startups fix cloud issues, automate infrastructure,
+          and secure AWS environments against real-world risks.
+        </p>
+
+        <a href="mailto:philip@pacedge.dev" class="button">
+          Book a consultation
+        </a>
+      </section>
+
+      <!-- PROBLEMS -->
+      <section class="problem">
+        <h2>If your AWS is costing you money or risk — we fix it.</h2>
+
+        <div class="grid">
+          <div>Unexpected AWS costs</div>
+          <div>Broken deployments</div>
+          <div>Over-permissioned IAM</div>
+          <div>Weak security controls</div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section>
+        <h2>What we help with</h2>
+
+        <div class="grid">
+          {services.map((s) => (
+            <div class="card">
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- SECURITY AUDIT -->
+      <section id="audit" class="audit">
+        <h2>AWS Security Audit</h2>
+
+        <ul>
+          {security.map((item) => <li>{item}</li>)}
+        </ul>
+
+        <a href="mailto:philip@pacedge.dev" class="button">
+          Get your AWS reviewed
+        </a>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <h2>Need help fixing your cloud?</h2>
+        <a href="mailto:philip@pacedge.dev" class="button">
+          Contact Pacedge
+        </a>
+      </section>
+
+    </main>
+  </body>
 </html>
+
+<style>
+  :root {
+    --bg: #05070a;
+    --panel: #0f1115;
+    --text: #f5f7fa;
+    --muted: #9ca3af;
+    --line: rgba(255,255,255,0.08);
+    --yellow: #facc15;
+  }
+
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+  }
+
+  section {
+    margin-top: 80px;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    background: #05070a;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-weight: 800;
+  }
+
+  .nav-link {
+    color: var(--muted);
+    margin-right: 16px;
+    text-decoration: none;
+  }
+
+  .nav-cta {
+    background: var(--yellow);
+    color: #000;
+    padding: 8px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  /* HERO */
+  .hero {
+    margin-top: 40px;
+  }
+
+  h1 {
+    font-size: 48px;
+    margin-top: 20px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: var(--muted);
+  }
+
+  .badge {
+    color: var(--yellow);
+    font-size: 12px;
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 20px;
+    background: var(--yellow);
+    color: #000;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  /* CARDS */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .card,
+  .problem div,
+  .audit,
+  .cta {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  /* LIST */
+  li {
+    margin-bottom: 10px;
+    color: var(--muted);
+  }
+</style>
